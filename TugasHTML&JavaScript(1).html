@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Data Mahasiswa</title>
+    <style>
+        body {
+            background-color: #add8e6;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin: 50px;
+        }
+
+        label {
+            display: inline-block;
+            width: 150px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            text-align: center;
+            margin: 0 0 10px 0;
+        }
+
+        h4 {
+            text-align: center;
+            margin: 0 auto 20px auto;
+            padding-bottom: 5px;
+            border-bottom: 2px solid black;
+            display: block;
+        }
+
+        form {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form name="formMahasiswa">
+            <h3>Data Mahasiswa</h3>
+            <h4>Universitas Pignatelli Triputra Surakarta</h4>
+            <br>
+            <label>NIM</label> : <input type="text" name="nim" id="nim" value="000000000"><br>
+            <label>Nama Mahasiswa</label> : <input type="text" name="nama" id="nama" value="Nama Mahasiswa"><br>
+            <label>Jenis Kelamin</label> :
+            <select id="jk">
+                <option value="Laki-laki" selected>Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+            </select><br>
+            <label>Agama</label> :
+            <select id="agama">
+                <option>Katolik</option>
+                <option>Kristen</option>
+                <option>Islam</option>
+                <option>Hindu</option>
+                <option>Budha</option>
+                <option>Kong Hu Chu</option>
+            </select><br>
+            <label>Status</label> :
+            <input type="radio" name="status" value="Tidak Kawin">Tidak Kawin
+            <input type="radio" name="status" value="Kawin">Kawin
+            <input type="radio" name="status" value="Belum Kawin" checked>Belum Kawin<br>
+            <label>Jurusan FST di UPITRA</label> :
+            <select id="jurusan">
+                <option>S1 Rekayasa Perangkat Lunak</option>
+                <option>S1 Informatika</option>
+                <option>S1 Sistem Informasi</option>
+            </select><br>
+            <label>Komentar</label> : <br>
+            <textarea id="komentar" rows="4"
+                cols="50">Hallo, aku sangat begitu senang bisa kuliah di UPITRA dengan jurusan S1 RPL. Bagaimana kalau dengan kamu?</textarea><br><br>
+
+            <input type="button" value="kirim" onclick="tampilkanData()">
+            <input type="reset" value="ulang"><br><br>
+        </form>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+        function tampilkanData() {
+            var nim = document.getElementById("nim").value;
+            var nama = document.getElementById("nama").value;
+            var jk = document.getElementById("jk").value;
+            var agama = document.getElementById("agama").value;
+            var status = document.querySelector('input[name="status"]:checked').value;
+            var jurusan = document.getElementById("jurusan").value;
+            var komentar = document.getElementById("komentar").value;
+
+            var hasil = "<h3>Data Mahasiswa Universitas Pignatelli Triputra Surakarta</h3>";
+            hasil += "<b>NIM</b> : " + nim + "<br>";
+            hasil += "<b>Nama Mahasiswa</b> : " + nama + "<br>";
+            hasil += "<b>Jenis Kelamin</b> : " + jk + "<br>";
+            hasil += "<b>Agama</b> : " + agama + "<br>";
+            hasil += "<b>Status</b> : " + status + "<br>";
+            hasil += "<b>Jurusan</b> : " + jurusan + "<br>";
+            hasil += "<b>Komentar</b> :<br>" + komentar;
+
+            document.getElementById("output").innerHTML = hasil;
+        }
+    </script>
+</body>
+
+</html>
